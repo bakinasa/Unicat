@@ -1,0 +1,71 @@
+image: python:3.8
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+  - .cache/pip/
+
+before_script:
+  - python -V
+
+stages:
+  - test
+  - style
+
+test:
+  stage: test
+  needs: []
+  before_script:
+  - pip install -r requirements.txt
+  script:
+  - ./ci/tests_runner.sh
+  - mv htmlcov public/coverage
+  artifacts:
+    when: always
+    paths:
+      - public/coverage
+      - public/tests.svg
+  only:
+    - master
+    - develop
+    - feature/ci
+
+pep8:
+  stage: style
+  needs: []
+  before_script:
+  - pip install -r requirements.txt
+  script:
+  - ./ci/pycodestyle_runner.sh
+  artifacts:
+    when: always
+    paths:
+      - public/pycodestyle.txt
+      - public/pycodestyle.svg
+  only:
+    - master
+    - develop
+    - feature/ci
+  allow_failure: true
+
+pylint:
+  stage: style
+  needs: []
+  before_script:
+  - apt-get update
+  - apt-get install -y --no-install-recommends bc
+  - pip install -r requirements.txt
+  script:
+  - ./ci/pylint_runner.sh
+  artifacts:
+    when: always
+    paths:
+      - public/pylint.svg
+      - public/pylint.html
+  only:
+    - master
+    - develop
+    - feature/ci
+  allow_failure: true
