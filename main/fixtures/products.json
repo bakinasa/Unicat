@@ -1,0 +1,44 @@
+[
+{
+    "model": "main.product",
+    "pk": 1,
+    "fields": {
+        "author": 1,
+        "category": 1,
+        "title": "weqf",
+        "description": "",
+        "rating": 0.0,
+        "user_rated": 0,
+        "created_at": "2022-03-22T09:47:57.561Z",
+        "color": "#FFFF00"
+    }
+},
+{
+    "model": "main.product",
+    "pk": 2,
+    "fields": {
+        "author": 1,
+        "category": 2,
+        "title": "fiio fd3 pro",
+        "description": "",
+        "rating": 0.0,
+        "user_rated": 0,
+        "created_at": "2022-03-22T09:47:57.561Z",
+        "color": "#000000"
+    }
+},
+{
+    "model": "main.product",
+    "pk": 3,
+    "fields": {
+        "author": 1,
+        "category": 2,
+        "title": "kz zsn pro x",
+        "description": "",
+        "rating": 0.0,
+        "user_rated": 0,
+        "created_at": "2022-03-22T09:47:57.561Z",
+        "color": "#FFFF00"
+    }
+}
+]

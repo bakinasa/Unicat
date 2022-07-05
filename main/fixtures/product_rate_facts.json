@@ -1,0 +1,20 @@
+[
+{
+    "model": "main.productratefact",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "product": 2,
+        "rating": 5
+    }
+},
+{
+    "model": "main.productratefact",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "product": 3,
+        "rating": 4
+    }
+}
+]

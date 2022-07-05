@@ -1,0 +1,99 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/stars_rating.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mini_rating.css' %}">
+    <link rel="stylesheet" href="{% static 'css/catalog_reviews.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row my-3">
+        <div class="col">
+            <h1 class="text-center">Обзоры</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center mb-3">
+      <div class="col-1 my-auto">Категория:</div>
+        <div class="col-4">
+            <form id="category_filter">
+                <select class="form-select" onchange="category_filter.submit()" name="category">
+                    <option value="filter_category.id">
+                        {% if filter_category %}
+                            {{ filter_category }}
+                        {% else %}
+                            Не выбрано
+                        {% endif %}
+                    </option>
+
+                    {% for category in categories %}
+                        {% if category != filter_category %}
+                            <option value="{{ category.id }}">{{ category.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+
+        <div class="col-4">
+            <div class="d-flex">
+                <input type="hidden" id='review_search_url' value="{% url 'review_search_results' %}">
+                <input class="form-control me-2 mb-0" type="search" placeholder="Введите название обзора" aria-label="Search" id="review_search">
+                <button class="btn btn-outline-success" onclick="review_redirect()">Поиск</button>
+            </div>
+        </div>
+    </div>
+
+  <div class="row mb-3">
+      <div class="d-flex justify-content-center">
+          <button class="btn btn-outline-secondary" onclick="location.href = '/catalog_reviews/'">Сбросить фильтры</button>
+      </div>
+    </div>
+
+    {% if reviews %}
+        <div class="card shadow p-2 margin_top">
+            {% for review in reviews %}
+                <div class="row align-items-center ps-2">
+                    <div class="col-1 center">
+                        <a href="{% url 'product_page' review.first.id %}">
+                            <img src="{{ review.get_images.first }}" class="photo">
+                        </a>
+                        <a href="{% url 'product_page' review.second.id %}">
+                            <img src="{{ review.get_images.second }}" class="photo second_photo">
+                        </a>
+                    </div>
+
+                    <div class="col-5 titles_review">
+                        <p class="badge bg-secondary no_margin">{{ review.first.category }}</p>
+                        <a href="{% url 'comparing_review' review.id %}">
+                            <p class="title_review">{{ review.name }}</p>
+                        </a>
+                        <p class="subtitle_review text-secondary">{{ review.description|truncatechars:30 }}</p>
+                    </div>
+
+                    <div class="col-4">
+                        <a href="{% url 'product_page' review.first.id %}"><span
+                                class="title_product">{{ review.first }}</span></a>
+                        <br>
+                        <a href="{% url 'product_page' review.second.id %}"><span
+                                class="title_product">{{ review.second }}</span></a>
+                    </div>
+
+                    <div class="col-2 rating center">
+                        <span>{% include 'base/widgets/review_rating.html' %}</span>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h2 class="text-center">Результатов не найдено.</h2>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/search_redirect.js' %}"></script>
+{% endblock %}

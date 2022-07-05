@@ -1,0 +1,92 @@
+[
+{
+    "model": "main.productcharacteristic",
+    "pk": 2,
+    "fields": {
+        "product": 2,
+        "characteristic": 2,
+        "value": "черный"
+    }
+},
+{
+    "model": "main.productcharacteristic",
+    "pk": 3,
+    "fields": {
+        "product": 2,
+        "characteristic": 3,
+        "value": "алюминий"
+    }
+},
+{
+    "model": "main.productcharacteristic",
+    "pk": 4,
+    "fields": {
+        "product": 2,
+        "characteristic": 4,
+        "value": "полуоткрытые"
+    }
+},
+{
+    "model": "main.productcharacteristic",
+    "pk": 5,
+    "fields": {
+        "product": 2,
+        "characteristic": 5,
+        "value": "10"
+    }
+},
+{
+    "model": "main.productcharacteristic",
+    "pk": 6,
+    "fields": {
+        "product": 2,
+        "characteristic": 6,
+        "value": "40000"
+    }
+},
+{
+    "model": "main.productcharacteristic",
+    "pk": 7,
+    "fields": {
+        "product": 2,
+        "characteristic": 7,
+        "value": "111"
+    }
+},
+{
+    "model": "main.productcharacteristic",
+    "pk": 8,
+    "fields": {
+        "product": 2,
+        "characteristic": 8,
+        "value": "32"
+    }
+},
+{
+    "model": "main.productcharacteristic",
+    "pk": 9,
+    "fields": {
+        "product": 2,
+        "characteristic": 9,
+        "value": "динамические, 1 драйвер"
+    }
+},
+{
+    "model": "main.productcharacteristic",
+    "pk": 10,
+    "fields": {
+        "product": 2,
+        "characteristic": 10,
+        "value": "3.5, 2.5, 4.4 (сменный)"
+    }
+},
+{
+    "model": "main.productcharacteristic",
+    "pk": 11,
+    "fields": {
+        "product": 2,
+        "characteristic": 11,
+        "value": "mmcx"
+    }
+}
+]

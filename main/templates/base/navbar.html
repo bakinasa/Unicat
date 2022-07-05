@@ -1,0 +1,37 @@
+{% load static %}
+<nav class="navbar navbar-light bg-light align-middle border-bottom">
+    <a class="navbar-brand ms-1 me-0" href="/" style="width:15%;">
+      <img src="{% static 'imgs/logo/light.png' %}" alt="logo" width="85%" height="55%">
+    </a>
+
+        {% include 'base/menu.html' %}
+
+  {% if request.user.is_authenticated %}
+      <div class="dropdown position-relative" style="width:15%;">
+        <div class="col-md-9 text-end">
+        <a class="lead nav-link h6 text-black me-4 mb-0" href="{% url 'profile' %}">{{ user.username }}</a>
+        </div>
+          <img src="{{ avatar }}"
+               title="Аватар пользователя"
+               width="75px"
+               height="70px"
+               class="btn rounded-circle position-absolute top-50 end-0 translate-middle-y dropdown-toggle me-3"
+               data-bs-toggle="dropdown" id="dropdownMenu" aria-expanded="false">
+      <ul class="dropdown-menu dropdown-menu-lg-end me-3 mt-4" aria-labelledby="dropdownMenu">
+        <li><h5 class="dropdown-header">{{user.username}}</h5></li>
+        <li><button class="dropdown-item" type="button">
+          <a class=" nav-link px-0 pt-0" href="{% url 'profile' %}">Профиль</a>
+        </button></li>
+        <li><button class="dropdown-item" type="button">
+          <a class=" nav-link px-0 pt-0" href="{% url 'profile_edit' user.id %}">Редактировать</a>
+        </button></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><button class="dropdown-item" type="button">
+          <a class=" nav-link px-0 pt-0" href="{% url 'logout' %}">Выйти</a>
+            </button></li>
+      </ul>
+    </div>
+  {% else %}
+    <a class="lead nav-link h6 text-primary" href="{% url 'login' %}">Войти</a>
+  {% endif %}
+</nav>

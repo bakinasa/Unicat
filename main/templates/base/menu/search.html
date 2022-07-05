@@ -1,0 +1,12 @@
+<div class="d-flex">
+  <input type="hidden" id='search_url' value="{% url 'search_results' %}">
+  <input class="form-control me-2 mb-0"
+         type="search"
+         autocomplete="off"
+         placeholder="Введите название товара"
+         aria-label="Search"
+         id="search"
+  >
+  <button class="btn btn-outline-success" onclick="redirect()">Поиск</button>
+  <div id="search_advice_wrapper"></div>
+</div>

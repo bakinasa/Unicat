@@ -1,0 +1,16 @@
+{% if request.user.is_staff %}
+  {% if apps %}
+    <li class="nav-item">
+      <a class="lead nav-link h6 text-black me-2 mb-0 position-relative" href="{% url 'applications' %}">Заявки
+        <small>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-black" style="background-color: #ABF26D;">
+            <small>
+              {{ app }}
+            </small>
+            <span class="visually-hidden">непрочитанные сообщения</span>
+          </span>
+        </small>
+      </a>
+    </li>
+  {% endif %}
+{% endif %}

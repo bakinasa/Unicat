@@ -1,0 +1,112 @@
+[
+{
+    "model": "main.categorycharacteristic",
+    "pk": 2,
+    "fields": {
+        "name": "цвет",
+        "description": "-",
+        "value_type": 3,
+        "category": 2,
+        "comparator": 2
+    }
+},
+{
+    "model": "main.categorycharacteristic",
+    "pk": 3,
+    "fields": {
+        "name": "материал",
+        "description": "-",
+        "value_type": 3,
+        "category": 2,
+        "comparator": 2
+    }
+},
+{
+    "model": "main.categorycharacteristic",
+    "pk": 4,
+    "fields": {
+        "name": "акустическое оформление",
+        "description": "-",
+        "value_type": 3,
+        "category": 2,
+        "comparator": 2
+    }
+},
+{
+    "model": "main.categorycharacteristic",
+    "pk": 5,
+    "fields": {
+        "name": "минимальные воспроизводимые частоты",
+        "description": "-",
+        "value_type": 0,
+        "category": 2,
+        "comparator": 0
+    }
+},
+{
+    "model": "main.categorycharacteristic",
+    "pk": 6,
+    "fields": {
+        "name": "максимальные воспроизводимые частоты",
+        "description": "-",
+        "value_type": 0,
+        "category": 2,
+        "comparator": 1
+    }
+},
+{
+    "model": "main.categorycharacteristic",
+    "pk": 7,
+    "fields": {
+        "name": "чувствительность",
+        "description": "-",
+        "value_type": 0,
+        "category": 2,
+        "comparator": 1
+    }
+},
+{
+    "model": "main.categorycharacteristic",
+    "pk": 8,
+    "fields": {
+        "name": "сопротивление",
+        "description": "-",
+        "value_type": 0,
+        "category": 2,
+        "comparator": 0
+    }
+},
+{
+    "model": "main.categorycharacteristic",
+    "pk": 9,
+    "fields": {
+        "name": "типы излучателей",
+        "description": "-",
+        "value_type": 3,
+        "category": 2,
+        "comparator": 2
+    }
+},
+{
+    "model": "main.categorycharacteristic",
+    "pk": 10,
+    "fields": {
+        "name": "штекер",
+        "description": "-",
+        "value_type": 3,
+        "category": 2,
+        "comparator": 2
+    }
+},
+{
+    "model": "main.categorycharacteristic",
+    "pk": 11,
+    "fields": {
+        "name": "разъем на наушниках",
+        "description": "-",
+        "value_type": 3,
+        "category": 2,
+        "comparator": 2
+    }
+}
+]

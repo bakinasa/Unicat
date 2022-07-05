@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/mini_rating.css' %}">
+{% endblock %}
+
+{% block content %}
+   <form id="filters" class="row my-3 mx-5">
+     <!-- Фильтрации по категориям -->
+     <div class="col-md-4">
+       <label for="category_filter" class="form-label">Категория:</label>
+       <select id="category_filter" class="form-select" onchange="filters.submit()"
+               name="category">
+         {% if filter_category %}
+           <option value="{{ filter_category.id }}" selected  hidden>
+             {{ filter_category }}
+           </option>
+           <option value="-1">Все категории</option>
+         {% else %}
+           <option value="-1" selected  hidden>Все категории</option>
+         {% endif %}
+
+         {% for category in categories %}
+            {% if category != filter_category %}
+              <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endif %}
+         {% endfor %}
+       </select>
+    </div>
+
+     <!-- Фильтрации по просмотрам/рейтингу -->
+     <div class="col-md-4">
+       <label for="sort_by_filter" class="form-label">Сортировать по:</label>
+       <select id="sort_by_filter" class="form-select" onchange="filters.submit()"
+               name="sort_filter">
+         {% if sort_filter == "views" %}
+           <option value="views">Просмотрам</option>
+           <option value="rating">Рейтингу</option>
+         {% else %}
+           <option value="rating">Рейтингу</option>
+           <option value="views">Просмотрам</option>
+         {% endif %}
+       </select>
+    </div>
+   </form>
+
+  <!-- Карточки товаров -->
+  <div class="row mt-4" style="width: 80rem;">
+    {%if products%}
+      {% for product in products %}
+        {% include 'base/widgets/product_card.html' %}
+      {% endfor %}
+    {% else %}
+    <h2>Результатов не найдено.</h2>
+    {% endif %}
+  </div>
+{% endblock %}

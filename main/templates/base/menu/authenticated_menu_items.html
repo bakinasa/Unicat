@@ -1,0 +1,5 @@
+{% if request.user.is_authenticated %}
+  <li class="nav-item">
+    <a class="lead nav-link h6 text-black me-2 mb-0" href="{% url 'add_product' %}">Добавить товар</a>
+  </li>
+{% endif %}

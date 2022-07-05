@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+ <div class="col">
+  <div class="card mx-auto" style="width: 70rem;">
+      <h5 class="card-header">Просмотр согласия
+      </h5>
+      <div class="card-body">
+        <div class="row mx-auto" style="width: 50rem;">
+            <iframe src="{% static 'js/ViewerJS/index.html'%}#../../..{{ agreement.url }}"
+                    width='700' height='470' allowfullscreen webkitallowfullscreen></iframe>
+          </div>
+          <div class="row mt-4 mx-2">
+            <a class="btn btn-outline-success" href="{{ agreement.url }}" download>Скачать</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+<script>
+function handleFileSelect(evt) {
+    var file = evt.target.files; // FileList object
+    var f = file[0];
+    // Only process image files.
+    if (!f.type.match('image.*')) {
+        alert("Image only please....");
+    }
+    var reader = new FileReader();
+    // Closure to capture the file information.
+    reader.onload = (function(theFile) {
+        return function(e) {
+            // Render thumbnail.
+            var span = document.createElement('span');
+            span.innerHTML = ['<img class="thumb" title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
+            document.getElementById('output').insertBefore(span, null);
+        };
+    })(f);
+    // Read in the image file as a data URL.
+    reader.readAsDataURL(f);
+}
+document.getElementById('file').addEventListener('change', handleFileSelect, false);
+</script>
+
+{% endblock %}

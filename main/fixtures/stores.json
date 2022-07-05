@@ -1,0 +1,11 @@
+[
+{
+    "model": "main.store",
+    "pk": 1,
+    "fields": {
+        "name": "Test shop",
+        "address": "",
+        "logo": "default_store_logo.png"
+    }
+}
+]

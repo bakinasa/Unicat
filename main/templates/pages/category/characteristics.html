@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <tr>
+        <td>Данные</td>
+        <td>Управление</td>
+      </tr>
+
+      {% for char in characteristics %}
+        <tr>
+          <td id="char_{{char.id}}">
+            <span class="js-info">{{ char }}</span>
+          </td>
+          <td>
+            <div class="row">
+              <div class="col">
+                <a href="#" class="btn btn-primary" onclick="edit_char({{category.id}}, {{char.id}})"><i class="fa-regular fa-pen-to-square"></i></a>
+              </div>
+              <div class="col">
+                <form method="post" action="/delete/">
+                  <input type="hidden" value="{{char.id}}">
+                  <button type="submit" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></button>
+                </form>
+              </div>
+            </div>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="https://kit.fontawesome.com/5740a54005.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static 'js/characteristics_edit.js' %}"></script>
+{% endblock %}

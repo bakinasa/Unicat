@@ -1,0 +1,26 @@
+[
+{
+    "model": "main.productcategory",
+    "pk": 1,
+    "fields": {
+        "name": "test",
+        "description": "test"
+    }
+},
+{
+    "model": "main.productcategory",
+    "pk": 2,
+    "fields": {
+        "name": "Наушники",
+        "description": "-"
+    }
+},
+{
+    "model": "main.productcategory",
+    "pk": 3,
+    "fields": {
+        "name": "M2 ssd",
+        "description": "-"
+    }
+}
+]

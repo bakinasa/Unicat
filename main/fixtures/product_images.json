@@ -1,0 +1,26 @@
+[
+{
+    "model": "main.productimage",
+    "pk": 1,
+    "fields": {
+        "product": 2,
+        "image": "product_images/fiio-fd3_1.jpg"
+    }
+},
+  {
+    "model": "main.productimage",
+    "pk": 2,
+    "fields": {
+      "product": 3,
+      "image": "product_images/kzzsnprox_1.jpg"
+    }
+  },
+{
+    "model": "main.productimage",
+    "pk": 3,
+    "fields": {
+        "product": 3,
+        "image": "product_images/kzzsnprox_1.jpg"
+    }
+}
+]

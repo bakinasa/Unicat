@@ -1,0 +1,6 @@
+{% comment %} Change the format of this file in order to change the html format of the response from the ajax request {% endcomment %}
+{% if products %}
+  {% for product in products %}
+    <div class="advice_variant" data-value="{{ product.title }}">{{ product.title|truncatechars:21 }}</div>
+  {% endfor %}
+{% endif %}

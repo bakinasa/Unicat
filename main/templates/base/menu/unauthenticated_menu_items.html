@@ -1,0 +1,5 @@
+{% if not request.user.is_authenticated %}
+  <li class="nav-item">
+    <a class="lead nav-link h6 text-black me-2 mb-0" href="{% url 'catalog' %}">Каталог</a>
+  </li>
+{% endif %}

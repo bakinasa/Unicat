@@ -1,0 +1,10 @@
+[
+{
+    "model": "main.storemanager",
+    "pk": 1,
+    "fields": {
+        "user": 3,
+        "store": 1
+    }
+}
+]

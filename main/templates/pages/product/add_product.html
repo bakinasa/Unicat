@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/product_add.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+{% endblock %}
+
+
+{% block content %}
+<form method="post" action="{% url 'add_product' %}" id="product_form" enctype="multipart/form-data">
+  <div class="form-wrap shadow my-5 rounded">
+
+    <div class="profile" style="width:70%;">
+
+      <div class="row">
+        <img src="{% static 'imgs/src/logo_notitle.png' %}">
+      </div>
+
+      <div class="row">
+        {% csrf_token %}
+        {{ image_form | crispy }}
+      </div>
+
+    </div>
+
+    <div class="special_form">
+      {% csrf_token %}
+      {{ form | crispy }}
+      <div id="category_characteristics_formset"></div>
+      <button class="special_button bottom rounded mt-5 mx-auto" type="submit">Загрузить на сайт</button>
+    </div>
+
+  </div>
+</form>
+
+{% endblock %}
+
+
+{% block extra_js %}
+  <script type="text/javascript" src="{% static 'js/product_add.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/product_add_image.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="card mx-auto my-3">
+  <div class="card-header">
+    <span class="h5">
+      Редактировать товар:
+      <a class="badge text-dark"
+       style="background-color: #ABF26D; text-decoration: none;"
+       href="{% url 'product_page' product.id %}">{{product}}</a>
+    </span>
+  </div>
+  <div class="card-body">
+    <!-- Edit image form-->
+    <form method="post" id="drop-form-js" action="{% url 'product_add_image' %}" enctype="multipart/form-data">
+        <!-- Drag&Drop field -->
+        <div id="upload-container">
+          <img id="upload-image" src="{% static 'imgs/product_add/upload.svg' %}">
+          <div>
+            <div class="badge bg-secondary"> {{ add_image_form }} </div>
+            <span>или перетащите её сюда</span>
+          </div>
+        </div>
+        <!-- Заготовка для предпросмотра изображения -->
+        <div class="preview-container">
+          {% if images %}
+            {% for productimage in product.productimage_set.all %}
+              <div class="preview-image">
+                <button type="button" class="close-btn" aria-label="Close">
+                  <span aria-hidden="true"><i class="bi bi-x-lg"></i></span>
+                </button>
+                <img class="img-thumbnail" id="{{ productimage.id }}" src="{{ productimage.image.url }}">
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </form>
+
+    <br>
+    <hr>
+    <br>
+
+    <!-- Edit content form -->
+    <form method="post" class="col-10 mx-auto" action="{% url 'product_edit_page' product.id %}">
+      {% csrf_token %}
+      <div class="row">
+        <div class="form-group col-md-5">
+          {{ form.category|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6">
+          {{ form.title|as_crispy_field }}
+        </div>
+        <div class="form-group col-1">
+          {{ form.color|as_crispy_field }}
+        </div>
+      </div>
+      {{ form.description|as_crispy_field }}
+      <button type="submit" class="btn mt-4" style="background-color: #ABF26D;">Сохранить</button>
+    </form>
+      <br>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block extra_js %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/product_add_image.js' %}"></script>
+{% endblock %}

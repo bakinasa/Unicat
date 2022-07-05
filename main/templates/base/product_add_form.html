@@ -1,0 +1,9 @@
+{% load crispy_forms_tags %}
+<hr>
+<div>
+  {% for cat_form in formset %}
+    <div>
+    {{ cat_form | crispy }}
+    </div>
+  {% endfor %}
+</div>
